@@ -76,6 +76,31 @@
   </div>
 </div>
 
+
+<!-- Electronics Hot Deals -->
+
+<br>
+<p>
+  <h1 class="center">
+  <p class="typewrite style" data-period="1000" data-type='[ "Electronics!!!" ]'>
+    <span class="wrap"></span>
+  </p>
+</h1>
+</p>
+
+
+<div class="wrapper">
+  <div class="carousel owl-carousel">
+    
+    {% for trend in electronics %}
+    <div class="card card-x">
+      <a href="{{ trend.url }}" target="_blank"><img style="height: 350px;" class="d-block w-100 kitchen_img" src="{{trend.img_url}}" alt="{{ trend.name }}" >
+      <p>{{ trend.name }}</p></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
 <!-- Gym Hot Deals -->
 
 <br>
