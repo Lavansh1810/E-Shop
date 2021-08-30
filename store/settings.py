@@ -138,5 +138,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+# # Activate Django-Heroku.
+# django_heroku.settings(locals())
