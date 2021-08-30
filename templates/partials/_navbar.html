@@ -1,0 +1,120 @@
+{%load static %}
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #0a3b5e;">
+
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'images/logo.png' %}" alt="" width="140" height="24">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item " >
+        
+        
+          <a 
+            
+            {% if '/' == request.path %}
+                  class="nav-link active"
+            {% else %}
+                  class="nav-link "
+            {% endif %}
+            aria-current="page" href="{% url 'index' %}"><i class="fa fa-home fa-fw"
+              aria-hidden="true"></i>Home</a>
+        </li>
+
+
+
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown" >
+          <a 
+              {% if 'products' in request.path %}
+                  class="nav-link active dropdown-toggle" 
+              {% else %}
+                  class="nav-link dropdown-toggle" 
+              {% endif %}
+            href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: #0a3b5e;">
+            <li><a class="dropdown-item" href="{% url 'products/gym' %}" style="color: #f3f4f5;">Gym Equipments</a></li>
+            <li><a class="dropdown-item" href="{% url 'products/clothing' %}" style="color: #f3f4f5;">Clothing</a></li>
+            <li><a class="dropdown-item" href="{% url 'products/electronics' %}" style="color: #f3f4f5;">Electronics</a>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'products/shoes' %}" style="color: #f3f4f5;">Shoes</a></li>
+            <li><a class="dropdown-item" href="{% url 'products/kitchen' %}" style="color: #f3f4f5;">Kitchen </a></li>
+            <li><a class="dropdown-item" href="{% url 'products/everyday_things' %}" style="color: #f3f4f5;">Daily
+                Use</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+
+    
+    <ul class="navbar-nav ">
+      {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a 
+                {% if '/' == request.path %}
+                    class="nav-link active " 
+                {% else %}
+                    class="nav-link" 
+                {% endif %}
+            
+            aria-current="page" href="{% url 'index' %}">
+            Welcome {{ user.username }} !!</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="javascript:{document.getElementById ('logout').submit()}" class="nav-link" aria-current="page">
+              <i class="fa fa-sign-out fa-fw">
+                  
+              </i>
+              Logout
+          </a>
+          <form action="{% url 'logout' %}" method="POST" id="logout" style="all:unset">
+              {% csrf_token %}
+              <input type="hidden" >
+          </form>
+          </li>
+      {% else %}
+          <li class="nav-item">
+            <a 
+                {% if 'register' in request.path %}
+                    class="nav-link active " 
+                {% else %}
+                    class="nav-link" 
+                {% endif %}
+            
+            aria-current="page" href="{% url 'register' %}"><i
+                class="fa fa-user fa-fw"></i></i>Register</a>
+          </li>
+
+          <li class="nav-item">
+            <a 
+                {% if 'login' in request.path %}
+                    class="nav-link active " 
+                {% else %}
+                    class="nav-link" 
+                {% endif %}
+            
+            
+            aria-current="page" href="{% url 'login' %}"><i
+                class="fa fa-sign-in fa-fw"></i>Login</a>
+          </li>
+      {% endif %}
+      
+
+
+
+    </ul>
+
+  </div>
+
+</nav>

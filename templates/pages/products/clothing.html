@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} | Clothing {% endblock %}
+{% block content %}
+
+<p>
+<h1 class="center">
+    <p class="typewrite style" data-period="1000"
+        data-type='[ "Hello Users.",  "Here you can get trending clothes with best deals !!!" ]'>
+        <span class="wrap"></span>
+    </p>
+</h1>
+</p>
+
+<div class="row margin" >
+
+    {% for product in products %}
+    <div class="col-sm-3 mb-3 ml-3 mr-3">
+        <div class="card center">
+            <div class="card-body">
+                <a href="{{ product.url }}"><img class="card-img-top" src="{{ product.img_url}}" alt="{{ product.name }}" style="height: 176px;"><br><br></a>
+                <h5 class="card-title">{{ product.name }}</h5><br>
+                <!-- <p class="card-text">{{ product.desc }}</p> -->
+                <a href="{{ product.url }} " class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    
+</div>
+
+
+{% endblock %}

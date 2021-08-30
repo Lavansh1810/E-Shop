@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block title %} | Welcome {% endblock %}
+{% block content %}
+
+<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href="{{ x.url }}" target="_blank"><img class="d-block w-100 " src="{{x.img_url}}" alt="{{ x.name }}" ></a>
+    </div>
+    
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> -->
+<br>
+{% include 'partials/_alerts.html' %}
+<p>
+  <h1 class="center">
+  <p class="typewrite style" data-period="1000" data-type='[ "Hello Users.",  "Grab the deals on!!!" ]'>
+    <span class="wrap"></span>
+  </p>
+</h1>
+</p>
+
+<!-- Kitchen Hot Deals -->
+
+<br>
+<p>
+  <h1 class="center">
+  <p class="typewrite style" data-period="1000" data-type='[ "Kitchenwares!!!" ]'>
+    <span class="wrap"></span>
+  </p>
+</h1>
+</p>
+
+
+<div class="wrapper">
+  <div class="carousel owl-carousel">
+    
+    {% for trend in kitchen %}
+    <div class="card card-x">
+      <a href="{{ trend.url }}" target="_blank"><img style="height: 450px;" class="d-block w-100 kitchen_img" src="{{trend.img_url}}" alt="{{ trend.name }}" >
+      <p>{{ trend.name }}</p></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Clothing Hot Deals -->
+
+<br>
+<p>
+  <h1 class="center">
+  <p class="typewrite style" data-period="1000" data-type='[ "Clothings!!!" ]'>
+    <span class="wrap"></span>
+  </p>
+</h1>
+</p>
+
+
+<div class="wrapper">
+  <div class="carousel owl-carousel">
+    
+    {% for trend in clothing %}
+    <div class="card card-x">
+      <a href="{{ trend.url }}" target="_blank"><img style="height: 350px;" class="d-block w-100 kitchen_img" src="{{trend.img_url}}" alt="{{ trend.name }}" >
+      <p>{{ trend.name }}</p></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Gym Hot Deals -->
+
+<br>
+<p>
+  <h1 class="center">
+  <p class="typewrite style" data-period="1000" data-type='[ "Gym Equipments!!!" ]'>
+    <span class="wrap"></span>
+  </p>
+</h1>
+</p>
+
+
+<div class="wrapper">
+  <div class="carousel owl-carousel">
+    
+    {% for trend in gym %}
+    <div class="card card-x">
+      <a href="{{ trend.url }}" target="_blank"><img style="height: 370px;" class="d-block w-100 kitchen_img" src="{{trend.img_url}}" alt="{{ trend.name }}" style="height: 500px;">
+      <p >{{ trend.name }}</p></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Shoes Hot Deals -->
+
+<br>
+<p>
+  <h1 class="center">
+  <p class="typewrite style" data-period="1000" data-type='[ "Shoes!!!" ]'>
+    <span class="wrap"></span>
+  </p>
+</h1>
+</p>
+
+
+<div class="wrapper">
+  <div class="carousel owl-carousel">
+    
+    {% for trend in shoes %}
+    <div class="card card-x">
+      <a href="{{ trend.url }}" target="_blank"><img style="height: 250px;" class="d-block w-100 kitchen_img" src="{{trend.img_url}}" alt="{{ trend.name }}" >
+      <p>{{ trend.name }}</p></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Daily_Use Hot Deals -->
+
+<br>
+<p>
+  <h1 class="center">
+  <p class="typewrite style" data-period="1000" data-type='[ "Daily Use!!!" ]'>
+    <span class="wrap"></span>
+  </p>
+</h1>
+</p>
+
+
+<div class="wrapper">
+  <div class="carousel owl-carousel">
+    
+    {% for trend in everyday_thing %}
+    <div class="card card-x">
+      <a href="{{ trend.url }}" target="_blank"><img style="height: 400px;" class="d-block w-100 kitchen_img" src="{{trend.img_url}}" alt="{{ trend.name }}" >
+      <p>{{ trend.name }}</p></a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  $(".carousel").owlCarousel({
+    margin: 20,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0:{
+        items:1,
+        nav: false
+      },
+      600:{
+        items:2,
+        nav: false
+      },
+      1000:{
+        items:3,
+        nav: false
+      }
+    }
+  });
+  
+</script>
+
+{% endblock %}

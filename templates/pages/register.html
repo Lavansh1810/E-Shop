@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Login {% endblock %}
+{% block content %}
+<form action="{% url 'register' %}" method="post">{% csrf_token %}
+   
+  <div class="imgcontainer">
+    <img src="{% static 'images/img_avatar2.png' %}" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    {% include 'partials/_alerts.html' %}
+    <label for="uname"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="fname" required>
+
+    <label for="uname"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lname" required>
+    
+    <label for="uname"><b>Email Address</b></label>
+    <input type="text" placeholder="Enter Last Name" name="email" required>
+
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b>&nbsp;</label><i class="fa fa-info-circle addmore"  aria-hidden="true" 
+    title="Valition Rules:&#10;Length of the password should be at least 6.&#10;Length of the password should be not be greater than 12.\nPassword should have at least one numeral.&#10;Password should have at least one uppercase letter.&#10;Password should have at least one lowercase letter.&#10;Password should have at least one of the symbols $@#.&#10;">
+  </i>
+    <input type="password" placeholder="Enter Password" name="password" required>
+        
+    <label for="psw"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Enter Password for confirmation" name="password2" required>
+        
+    <button type="submit" value="Register">Register</button>
+    
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <a href="{% url 'index' %}"><button type="button" class="cancelbtn" >Cancel</button></a>
+    <span class="psw">Already have  <a href="{% url 'login' %}">an account</a></span>
+  </div>
+</form>
+
+{% endblock %}
